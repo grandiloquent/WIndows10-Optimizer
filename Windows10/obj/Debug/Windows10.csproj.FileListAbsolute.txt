@@ -1,0 +1,6 @@
+C:\Users\Dennis\Documents\SharpDevelop Projects\Windows10\Windows10\bin\Debug\Windows10.exe.config
+C:\Users\Dennis\Documents\SharpDevelop Projects\Windows10\Windows10\bin\Debug\Windows10.exe
+C:\Users\Dennis\Documents\SharpDevelop Projects\Windows10\Windows10\bin\Debug\Windows10.pdb
+C:\Users\Dennis\Documents\SharpDevelop Projects\Windows10\Windows10\obj\Debug\Windows10.csprojResolveAssemblyReference.cache
+C:\Users\Dennis\Documents\SharpDevelop Projects\Windows10\Windows10\obj\Debug\Windows10.exe
+C:\Users\Dennis\Documents\SharpDevelop Projects\Windows10\Windows10\obj\Debug\Windows10.pdb
