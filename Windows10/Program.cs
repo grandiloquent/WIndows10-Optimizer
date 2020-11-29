@@ -74,7 +74,12 @@ namespace Windows10
 //			Process.Start("rem", "reg add \"HKLM\\System\\CurrentControlSet\\Services\\SecurityHealthService\" /v \"Start\" /t REG_DWORD /d \"4\" /f","admin", pass, "");
 //			Process.Start("rem", "1 - Disable Real-time protection","admin", pass, "");
 			Process.Start("reg", "delete \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\" /f");
+			
+			Process.Start("reg", "add \"HKLM\\Software\\Microsoft\\Windows Defender\" /v \"DisableAntiSpyware\" /t REG_DWORD /d \"1\" /f");
+			Process.Start("reg", "add \"HKLM\\Software\\Microsoft\\Windows Defender\" /v \"DisableAntiVirus\" /t REG_DWORD /d \"1\" /f");
+			
 			Process.Start("reg", "add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiSpyware\" /t REG_DWORD /d \"1\" /f");
+			Process.Start("reg", "add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\" /v \"DisableRoutinelyTakingAction\" /t REG_DWORD /d \"1\" /f");
 			Process.Start("reg", "add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiVirus\" /t REG_DWORD /d \"1\" /f");
 			Process.Start("reg", "add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\MpEngine\" /v \"MpEnablePus\" /t REG_DWORD /d \"0\" /f");
 			Process.Start("reg", "add \"HKLM\\Software\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableBehaviorMonitoring\" /t REG_DWORD /d \"1\" /f");
@@ -113,9 +118,15 @@ namespace Windows10
 //			Process.Start("rem", "Run \"Disable WD.bat\" again to disable WD services","admin", pass, "");
 			
 //			
-//			Process.Start("sc.exe", "config wuauserv start=disabled");
-//			Process.Start("reg", "add \"HKLM\\System\\CurrentControlSet\\Services\\wuauserv\" /v \"Start\" /t REG_DWORD /d \"4\" /f");
-//			
+			Process.Start("sc.exe", "config wuauserv start=disabled");
+			Process.Start("reg", "add \"HKLM\\System\\CurrentControlSet\\Services\\wuauserv\" /v \"Start\" /t REG_DWORD /d \"4\" /f");
+			Process.Start("reg", "add \"HKLM\\System\\CurrentControlSet\\Services\\WpnUserService\" /v \"Start\" /t REG_DWORD /d \"4\" /f");
+			
+			Process.Start("reg", "add \"HKLM\\Software\\Policies\\Microsoft\\Windows\\Windows Search\" /v \"AllowCortana\" /t REG_DWORD /d \"0\" /f");
+			Process.Start("reg", "add \"HKLM\\Software\\Policies\\Microsoft\\Windows\\Windows Search\" /v \"AllowCortanaAboveLock\" /t REG_DWORD /d \"0\" /f");
+			Process.Start("reg", "add \"HKLM\\Software\\Policies\\Microsoft\\Windows\\Windows Search\" /v \"DisableWebSearch\" /t REG_DWORD /d \"1\" /f");
+			Process.Start("reg", "add \"HKLM\\Software\\Policies\\Microsoft\\Windows\\Windows Search\" /v \"ConnectedSearchUseWeb\" /t REG_DWORD /d \"0\" /f");
+			Process.Start("reg", "add \"HKLM\\Software\\Policies\\Microsoft\\Windows\\Windows Search\" /v \"ConnectedSearchUseWebOverMeteredConnections\" /t REG_DWORD /d \"0\" /f");
 //			var o =	Process.Start(new ProcessStartInfo {
 //				FileName = "cmd",
 //				Arguments = "/k reg add \"HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\ImmersiveShell\" /v \"UseActionCenterExperience\" /t REG_DWORD /d \"0\" /f",
@@ -131,7 +142,8 @@ namespace Windows10
 //			}
 //			o.WaitForExit();
 			Process.Start("reg", "add \"HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\ImmersiveShell\" /v \"UseActionCenterExperience\" /t REG_DWORD /d \"0\" /f");
-
+// reg add "HKLM\System\CurrentControlSet\Services\WpnUserService" /v "Start" /t REG_DWORD /d "4" /f
+		
 
 		}
 	}
